@@ -1,4 +1,4 @@
-# planetconsole
+# planetApplication
 
 ## Project setup
 ```
