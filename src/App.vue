@@ -4,6 +4,9 @@
   </div>
 </template>
 
+<script setup>
+</script>
+
 <style>
 html,body,
 #app{

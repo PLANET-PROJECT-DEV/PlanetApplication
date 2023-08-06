@@ -1,18 +1,16 @@
 import { createStore } from 'vuex'
+import {getItem,setItem} from "@/utils/storage";
 
-export default createStore({
-  state: {
-    isCollapse: false
+const TOKEN_KEY="USER"
+const store=createStore({
+  state:{
+    user:getItem('TOKEN_KEY')
   },
-  getters: {
-  },
-  mutations: {
-    changeIsCollapse (state,payload) {
-      state.isCollapse = !state.isCollapse
+  mutations:{
+    setUser(state,data){
+      state.user=data;
+      setItem(TOKEN_KEY,JSON.stringify(state.user));
     }
-  },
-  actions: {
-  },
-  modules: {
   }
-})
+});
+export default store;
