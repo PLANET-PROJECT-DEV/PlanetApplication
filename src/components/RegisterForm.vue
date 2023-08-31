@@ -17,7 +17,7 @@
             v-model="registerUser.code"
             :rules="registerRules.code"
         >
-        <template #button>
+      <template #button>
         <van-button size="small" type="primary" @click="handleSendCode">发送验证码</van-button>
       </template>
         </van-field>
@@ -42,20 +42,23 @@
 import {useRouter} from 'vue-router'
 import {registerUser,registerRules} from "@/utils/RegisterVaildators";
 import {sendcode,register} from "@/api/user";
+import {useStore} from "vuex";
 
 const router = useRouter()
+const store=useStore();
 // 触发注册登录
 const handleRegister = async () => {
-  const res=await register(registerUser)
-  if (res.data.code===0){
-    console.log("success")
+  const res=await register(registerUser.value)
+  if (res.data){
+    store.commit('setUser',res.data);
+    console.log(res)
     router.push('/application/index')
   }else {
     console.log("submit error")
   }
 }
 const handleSendCode=async ()=> {
-  await sendcode(registerUser);
+  await sendcode(registerUser.value);
 }
 
 </script>

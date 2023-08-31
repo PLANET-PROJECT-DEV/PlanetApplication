@@ -45,11 +45,10 @@ import {useStore} from "vuex";
 const router = useRouter();
 const store=useStore();
 const handleLogin = async() => {
-
-  const res = await login(loginUser);
-  if(res.data.code===0){
+  const res = await login(loginUser.value);
+  if(res.data){
       store.commit('setUser',res.data);
-      console.log("success");
+      console.log(res);
       router.push('/application/index');
   }else {
     console.log("submit error");

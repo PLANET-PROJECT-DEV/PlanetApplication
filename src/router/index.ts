@@ -12,12 +12,26 @@ const routes = [
     component: () => import('../views/LoginRegister.vue')
   },
   {
-    path: '/application/index',
-    name: 'applicationIndex',
-    meta:{
-      requireAuth:true
+    path: '/application',
+    name: 'application',
+    component: () => import('../views/Application.vue'),
+    children:[
+        {
+          path:'/application/index',
+          name:'applicationIndex',
+          component:()=>import('../views/ApplicationIndex.vue')
     },
-    component: () => import('../views/Application.vue')
+      {
+        path:'/application/message',
+        name:'applicationMessage',
+        component:()=>import('../views/ApplicationMessage.vue')
+      },
+      {
+        path:'/application/user',
+        name:'applicationUser',
+        component:()=>import('../views/ApplicationUser.vue')
+      }
+    ]
   }
 ]
 

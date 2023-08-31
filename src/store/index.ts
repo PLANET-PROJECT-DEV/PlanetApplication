@@ -9,7 +9,7 @@ const store=createStore({
   mutations:{
     setUser(state,data){
       state.user=data;
-      setItem(TOKEN_KEY,JSON.stringify(state.user));
+      window.localStorage.setItem(TOKEN_KEY,JSON.stringify(state.user));
     }
   }
 });
