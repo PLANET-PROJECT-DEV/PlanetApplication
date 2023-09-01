@@ -34,7 +34,6 @@
       <van-divider/>
       <van-space>
       </van-space>
-
     </div>
     <div class="right">
       <router-view>
