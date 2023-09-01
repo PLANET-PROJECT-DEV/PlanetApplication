@@ -2,7 +2,8 @@ const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: false,
-  runtimeCompiler: true
+  runtimeCompiler: true,
+  productionSourceMap: false
 })
 
 const { VantResolver } = require('unplugin-vue-components/resolvers');
